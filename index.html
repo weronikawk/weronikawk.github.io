@@ -82,11 +82,27 @@
       flex: 0 0 150px;
       max-width: 150px;
     }
+/* Right-hand box (photo + info + links) */
+    .intro-side {
+      flex: 0 0 230px;
+      max-width: 230px;
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+      font-size: 0.9rem;
+    }
 
-    .intro-photo img {
+    .intro-side img {
       width: 100%;
-      border-radius: 50%;
+      border-radius: 4px;
       display: block;
+      margin-bottom: 8px;
+    }
+
+    .intro-meta-line {
+      margin: 2px 0;
     }
 
     a {
@@ -106,15 +122,8 @@
       color: #666;
     }
 
-    .contact-line {
-      margin-top: 4px;
-      font-size: 0.95rem;
-    }
-
-    footer {
-      margin-top: 40px;
-      font-size: 0.8rem;
-      color: #888;
+    .links-list {
+      margin-top: 6px;
     }
   </style>
 </head>
@@ -128,39 +137,33 @@
         <a href="#teaching">Teaching</a>
       </nav>
 
-      <div class="intro" id="about">
+         <main>
+       <div class="intro" id="about">
+        <!-- LEFT: about / research text -->
         <div class="intro-text">
-          <h1>Weronika Wrzos-Kaminska </h1>
-          <div class="subtitle">
-            PhD Student <br>
-            EPFL, Switzerland <br>
-    Email: weronika [dot] wrzos-kaminska [at] epfl [dot] ch <br>
-          </div>
-
-            <main>
-          <!-- CHANGE THIS: Short intro about you -->
+          <h1>Name</h1>
           <p>
-            I am a <strong>your role</strong> at <strong>Your University</strong>. 
-            I am broadly interested in <em>your main research areas</em>. 
-            Recently, my work has focused on <em>a bit more detail here</em>.
-          </p>
-
-          <!-- CHANGE THIS: Your real email and links -->
-          <p class="contact-line">
-              <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> ·
-             <a href="https://dblp.org/" target="_blank">DBLP</a> ·
-            </span>
+            I am a <strong>PhD student</strong> in <strong>Some Area</strong> at <strong>School</strong>.
+            I am broadly interested in <em>your main research areas</em>. Recently, my work has focused on
+            <em>a bit more detail here</em>.
           </p>
         </div>
+           <!-- RIGHT: box with photo + basic info + links -->
+        <aside class="intro-side">
+          <!-- Photo (optional). Replace photo.jpg, or remove this <img> line if you don't want a picture yet. -->
+          <img src="photo.jpg" alt="Name">
 
-        <!-- OPTIONAL PHOTO: you can remove this whole block if you don't want a picture yet -->
-        <div class="intro-photo">
-          <!-- Later, you can upload a file like photo.jpg and change the name below -->
-          <img src="photo.jpg" alt="Your Name portrait">
-        </div>
+          <div class="intro-meta-line">PhD Student</div>
+          <div class="intro-meta-line">EPFL, Switzerland</div>
+          <div class="intro-meta-line">Email:  weronika [dot] wrzos-kaminska [at] epfl [dot] ch</div>
+
+          <div class="links-list small">
+            <div><a href="https://scholar.google.com/" target="_blank">Google Scholar</a></div>
+            <div><a href="https://dblp.org/" target="_blank">DBLP</a></div>
+          </div>
+        </aside>
       </div>
     </header>
-
 
    
       <section id="publications">
