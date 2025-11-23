@@ -31,6 +31,7 @@ nav {
   font-size: 0.95rem;
   margin-bottom: 12px;
  width: 100%;
+  text-align: right;
 border-bottom: 1px solid #ddd;
 }
 
@@ -93,8 +94,9 @@ border-bottom: 1px solid #ddd;
     
 /* Right-hand box (photo + info + links) */
     .intro-side {
-      flex: 0 0 300px;
-     max-width: 300px;
+      text-align: center;
+      flex: 0 0 280px;
+     max-width: 280px;
       background: #ffffff;
       border-radius: 8px;
       padding: 12px;
@@ -152,12 +154,13 @@ border-bottom: 1px solid #ddd;
 <body>
   <div class="page">
     <header>
+      <!--
       <nav>
-        <!-- These links jump to sections further down the page -->
         <a href="#about">Home</a>
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
       </nav>
+    -->
 
          <main>
        <div class="intro" id="about">
@@ -176,7 +179,7 @@ border-bottom: 1px solid #ddd;
 
           <div class="intro-meta-line">PhD Student</div>
           <div class="intro-meta-line">EPFL, Switzerland</div>
-          <div class="intro-meta-line">Email: weronika[dot]wrzos-kaminska[at]epfl[dot]ch</div>
+          <div class="intro-meta-line">weronika[dot]wrzos-kaminska[at]epfl[dot]ch</div>
 
         </aside>
       </div>
