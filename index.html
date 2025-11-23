@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Name – Research</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Basic page styling (you don't need to touch this part) -->
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background-color: #f9f9fb;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    .page {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 24px 16px 48px;
+    }
+
+    header {
+      margin-top: 16px;
+      margin-bottom: 24px;
+    }
+
+    nav {
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+
+    nav a {
+      margin-right: 16px;
+      text-decoration: none;
+      color: #555;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin: 0 0 4px;
+    }
+
+    h2 {
+      font-size: 1.3rem;
+      margin-top: 32px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 4px;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      color: #555;
+      font-size: 0.98rem;
+      margin-bottom: 8px;
+    }
+
+    .intro {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 12px;
+      margin-bottom: 24px;
+    }
+
+    .intro-text {
+      flex: 2 1 220px;
+      min-width: 220px;
+    }
+
+    .intro-photo {
+      flex: 0 0 150px;
+      max-width: 150px;
+    }
+
+    .intro-photo img {
+      width: 100%;
+      border-radius: 50%;
+      display: block;
+    }
+
+    a {
+      color: #005bbb;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .small {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    .contact-line {
+      margin-top: 4px;
+      font-size: 0.95rem;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.8rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <nav>
+        <!-- These links jump to sections further down the page -->
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#teaching">Teaching</a>
+        <a href="#cv">CV</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <div class="intro" id="about">
+        <div class="intro-text">
+          <!-- CHANGE THIS: Your name and position -->
+          <h1>Your Name</h1>
+          <div class="subtitle">
+            Your current position (e.g., PhD student in Theoretical Computer Science)<br>
+            Your Department, Your University
+          </div>
+
+          <!-- CHANGE THIS: Short intro about you -->
+          <p>
+            I am a <strong>your role</strong> at <strong>Your University</strong>. 
+            I am broadly interested in <em>your main research areas</em>. 
+            Recently, my work has focused on <em>a bit more detail here</em>.
+          </p>
+
+          <!-- CHANGE THIS: Your real email and links -->
+          <p class="contact-line">
+            Email: <a href="mailto:your.name@university.ch">your.name@university.ch</a><br>
+            <span class="small">
+              <a href="https://scholar.google.com/" target="_blank">Google Scholar</a> ·
+              <a href="https://dblp.org/" target="_blank">DBLP</a> ·
+              <a href="https://github.com/YOURUSERNAME" target="_blank">GitHub</a>
+            </span>
+          </p>
+        </div>
+
+        <!-- OPTIONAL PHOTO: you can remove this whole block if you don't want a picture yet -->
+        <div class="intro-photo">
+          <!-- Later, you can upload a file like photo.jpg and change the name below -->
+          <img src="photo.jpg" alt="Your Name portrait">
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="research">
+        <h2>Research</h2>
+        <!-- CHANGE THIS: high-level description of your research -->
+        <p>
+          I work on the design and analysis of algorithms, with a focus on
+          approximation algorithms, sublinear-time algorithms, and algorithmic lower bounds.
+        </p>
+        <p>
+          Some themes of my research include:
+        </p>
+        <ul>
+          <li>Theme 1 – one sentence about it.</li>
+          <li>Theme 2 – one sentence about it.</li>
+          <li>Theme 3 – one sentence about it.</li>
+        </ul>
+      </section>
+
+      <section id="publications">
+        <h2>Publications</h2>
+
+        <h3>Selected publications</h3>
+        <!-- CHANGE THESE: fill with your real papers -->
+        <ul>
+          <li>
+            <strong>Title of your nicest paper</strong><br>
+            Your Name, Coauthor A, Coauthor B.<br>
+            <span class="small">Conference/Journal, Year.</span><br>
+            <span class="small">
+              [<a href="#">PDF</a>]
+              [<a href="#">arXiv</a>]
+              [<a href="#">slides</a>]
+            </span>
+          </li>
+          <li>
+            <strong>Another title</strong><br>
+            Your Name, Coauthor C, Coauthor D.<br>
+            <span class="small">Venue, Year.</span><br>
+            <span class="small">
+              [<a href="#">PDF</a>]
+            </span>
+          </li>
+        </ul>
+
+        <h3>Preprints / manuscripts</h3>
+        <ul>
+          <li>
+            <strong>Title of a preprint</strong><br>
+            Your Name, ...<br>
+            <span class="small">Preprint, Year.</span><br>
+            <span class="small">
+              [<a href="#">arXiv</a>]
+            </span>
+          </li>
+        </ul>
+      </section>
+
+      <section id="teaching">
+        <h2>Teaching</h2>
+        <!-- CHANGE THESE: your teaching / TA roles -->
+        <ul>
+          <li>
+            <strong>Course name</strong>, Your University — <span class="small">Term Year</span><br>
+            Role: Instructor / Teaching Assistant.
+          </li>
+          <li>
+            <strong>Another course</strong>, Other institution — <span class="small">Term Year</span><br>
+            Role: Instructor / Teaching Assistant.
+          </li>
+        </ul>
+      </section>
+
+      <section id="cv">
+        <h2>CV</h2>
+        <p>
+          You can upload a PDF named <code>cv.pdf</code> to this repository and link to it here:
+        </p>
+        <p>
+          <a href="cv.pdf">Download my CV (PDF)</a>
+        </p>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <!-- CHANGE THIS: your real contact info -->
+        <p>
+          Email: <a href="mailto:your.name@university.ch">your.name@university.ch</a><br>
+          Office: Your office, Your building, Your campus<br>
+          Affiliation: Department of Something, Your University
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="year"></span> Your Name.
+    </footer>
+  </div>
+
+  <script>
+    /* This tiny script fills in the current year in the footer */
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
