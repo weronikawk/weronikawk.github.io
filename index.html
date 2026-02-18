@@ -189,10 +189,23 @@ border-bottom: 1px solid #ddd;
         <aside class="intro-side">
           <img src="DSCF8109.png" alt="Name">
 
-         <!-- <div class="intro-meta-line">PhD Student</div>
+         <div class="intro-meta-line">PhD Student</div>
           <div class="intro-meta-line">EPFL, Switzerland</div>
-          -->
-          <div class="intro-meta-line">Email: weronika [dot] wrzos-kaminska [at] epfl [dot] ch</div>
+
+        <div class="intro-meta-line">
+  <a href="#" id="email-link" class="email-link" rel="nofollow">
+    ✉ email
+  </a>
+</div>
+
+<script>
+  (function () {
+    const user = "weronika.wrzos-kaminska";
+    const domain = "epfl.ch";
+    const a = document.getElementById("email-link");
+    a.href = "mailto:" + user + "@" + domain;
+  })();
+</script>
 
         </aside>
       </div>
