@@ -5,8 +5,11 @@
   <title>Weronika Wrzos-Kaminska</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- Basic page styling  -->
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -27,90 +30,86 @@
       margin-bottom: 24px;
     }
 
-nav {
-  font-size: 0.95rem;
-  margin-bottom: 12px;
- width: 100%;
-  text-align: right;
-border-bottom: 1px solid #ddd;
-}
+    nav {
+      width: 100%;
+      margin-bottom: 12px;
+      border-bottom: 1px solid #ddd;
+      font-size: 0.95rem;
+      text-align: right;
+    }
 
     nav a {
       margin-right: 16px;
-      text-decoration: none;
       color: #555;
       font-weight: 600;
     }
 
-    nav a:hover {
-      text-decoration: underline;
-    }
-
     h1 {
-      font-size: 2rem;
       margin: 0 0 4px;
+      font-size: 2rem;
     }
 
     h2 {
-      font-size: 1.3rem;
       margin-top: 18px;
-      border-bottom: 1px solid #ddd;
       padding-bottom: 4px;
+      border-bottom: 1px solid #ddd;
+      font-size: 1.3rem;
     }
 
     h3 {
-      font-size: 1.05rem;
       margin-bottom: 4px;
+      font-size: 1.05rem;
     }
 
     .subtitle {
+      margin-bottom: 8px;
       color: #555;
       font-size: 0.98rem;
-      margin-bottom: 8px;
     }
 
     .intro {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
+      display: grid;
+      grid-template-columns: minmax(0, 370px) minmax(0, 1fr);
+      grid-template-areas:
+        "side title"
+        "side text";
+      column-gap: 16px;
+      align-items: start;
       margin-top: 24px;
       margin-bottom: 24px;
     }
 
+    .intro-title {
+      grid-area: title;
+    }
+
     .intro-text {
-      flex: 2 1 220px;
-      min-width: 220px;
+      grid-area: text;
+      min-width: 0;
     }
 
-    .intro-photo {
-      flex: 0 0 140px;
-      max-width: 140px;
+    #publications li {
+      margin-bottom: 18px;
     }
 
-  #publications li {
-    margin-bottom: 18px;
-  }
-
-    
-/* Right-hand box (photo + info + links) */
+    /* Left-hand box: photo, information, and links */
     .intro-side {
-      text-align: center;
-      flex: 0 0 370px;
-     max-width: 370px;
-      background: #ffffff;
-      border-radius: 8px;
+      grid-area: side;
+      width: 100%;
+      max-width: 370px;
       padding: 12px;
+      border-radius: 8px;
+      background: #ffffff;
+      text-align: center;
       font-size: 0.9rem;
     }
 
-
     .intro-side > img {
-      width: 100%;
-       max-width: 270px;
-      border-radius: 2px;
       display: block;
-    margin: 0 auto 8px auto;
-      text-align: center;
+      width: 100%;
+      max-width: 216px; /* 20% smaller than 270px */
+      margin: 0 auto 8px;
+      border-radius: 2px;
     }
 
     .intro-meta-line {
@@ -119,9 +118,11 @@ border-bottom: 1px solid #ddd;
 
     a {
       color: #005bbb;
+      text-decoration: none;
     }
 
-    a:hover {
+    a:hover,
+    a:focus-visible {
       text-decoration: underline;
     }
 
@@ -130,42 +131,102 @@ border-bottom: 1px solid #ddd;
     }
 
     .small {
+      color: #666;
       font-size: 0.9rem;
+    }
+
+    .links-row {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .icon-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .icon-link img {
+      width: 16px;
+      height: 16px;
+    }
+
+    .gray {
+      display: inline-block;
       color: #666;
     }
-    
-.links-row {
-  display: flex;
-  justify-content: center;  /* keeps centered */
-  gap: 20px;                /* space between Email and Scholar */
-}
 
-.icon-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-}
-
-.icon-link img {
-  width: 16px;
-  height: 16px;
-}
-    .emph {
-  color: #a00000;   /* same blue as your links */
-  font-style: italic;
-}
-
-       .gray {
+    .student-paper-note {
       color: #666;
-      display: inline-block;
+      font-style: normal;
+    }
+
+    .toc-note {
+      color: #c000a0;
+      font-style: normal;
     }
 
     .links-list {
       margin-top: 6px;
     }
 
-    
+    /* Teaching: course on the left, metadata on the right */
+    .teaching-list {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .teaching-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.2rem 0;
+    }
+
+    .teaching-course {
+      color: #222;
+      font-size: 0.95rem;
+    }
+
+    .teaching-meta {
+      flex-shrink: 0;
+      color: #666;
+      font-size: 0.9rem;
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    @media (max-width: 760px) {
+      header {
+        margin-top: 24px;
+      }
+
+      .intro {
+        grid-template-columns: minmax(0, 1fr);
+        grid-template-areas:
+          "title"
+          "side"
+          "text";
+      }
+
+      .intro-side {
+        max-width: none;
+      }
+
+      .teaching-item {
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .teaching-meta {
+        margin-top: 2px;
+        text-align: left;
+        white-space: normal;
+      }
+    }
   </style>
 </head>
 <body>
@@ -177,147 +238,155 @@ border-bottom: 1px solid #ddd;
         <a href="#publications">Publications</a>
         <a href="#teaching">Teaching</a>
       </nav>
-    -->
+      -->
 
-         <main>
-       <div class="intro" id="about">
-        <!-- LEFT: about / research text -->
+      <div class="intro" id="about">
+        <h1 class="intro-title">Weronika Wrzos-Kaminska</h1>
+
+        <!-- LEFT: photo, basic information, and links -->
+        <aside class="intro-side">
+          <img src="DSCF8109.png" alt="Weronika Wrzos-Kaminska">
+
+          <div class="intro-meta-line">PhD Student at EPFL, Switzerland</div>
+
+          <div class="intro-meta-line links-row">
+            <a
+              href="#"
+              id="email-link"
+              class="icon-link"
+              rel="nofollow"
+              aria-label="Email"
+            >
+              <img src="envelope-fill.svg" alt="" aria-hidden="true">
+              <span>Email</span>
+            </a>
+
+            <a
+              href="https://scholar.google.com/citations?user=jkdeJ7wAAAAJ"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="icon-link"
+            >
+              <img src="google-scholar-square.svg" alt="" aria-hidden="true">
+              <span>Google Scholar</span>
+            </a>
+          </div>
+        </aside>
+
+        <!-- RIGHT: about and research text -->
         <div class="intro-text">
-          <h1>Weronika Wrzos-Kaminska</h1>
           <p>
-
-            I am a PhD student in Computer Science at 
-            
-            <a href="https://www.epfl.ch/en/" target="_blank">EPFL</a>, 
-            where I am advised by  <a href="https://theory.epfl.ch/kapralov/" target="_blank">Michael&nbsp;Kapralov</a>. 
-            </p>
-          
-              <p>
-            I am broadly interested in theoretical computer science. My research focuses on graph algorithms, including sublinear algorithms, clustering and spectral techniques. 
+            I am a PhD student in Computer Science at
+            <a href="https://www.epfl.ch/en/" target="_blank" rel="noopener noreferrer">EPFL</a>,
+            where I am advised by
+            <a href="https://theory.epfl.ch/kapralov/" target="_blank" rel="noopener noreferrer">Michael&nbsp;Kapralov</a>.
           </p>
 
-              <p>
-            Before joining EPFL, I completed my undergraduate and Master’s degree in Mathematics at the <a href="https://www.maths.cam.ac.uk/" target="_blank">University of Cambridge</a>. 
+          <p>
+            I am broadly interested in theoretical computer science. My research focuses on graph algorithms,
+            including sublinear algorithms, clustering and spectral techniques.
+          </p>
 
-                  
+          <p>
+            Before joining EPFL, I completed my undergraduate and Master’s degree in Mathematics at the
+            <a href="https://www.maths.cam.ac.uk/" target="_blank" rel="noopener noreferrer">University of Cambridge</a>.
           </p>
         </div>
-           <!-- RIGHT: box with photo + basic info + links -->
-        <aside class="intro-side">
-          <img src="DSCF8109.png" alt="Name">
+      </div>
+    </header>
 
-         <div class="intro-meta-line">PhD Student at EPFL, Switzerland</div>
-
-<div class="intro-meta-line links-row">
-
-  <a href="#"
-     id="email-link"
-     class="icon-link"
-     rel="nofollow"
-     aria-label="Email">
-
-    <img src="envelope-fill.svg"
-         alt=""
-         aria-hidden="true">
-
-    <span>Email</span>
-  </a>
-
-  <a href="https://scholar.google.com/citations?user=jkdeJ7wAAAAJ"
-     target="_blank"
-     class="icon-link">
-
-    <img src="google-scholar-square.svg"
-         alt=""
-         aria-hidden="true">
-
-    <span>Google Scholar</span>
-  </a>
-
-</div>
-
-<script>
-  (function () {
-    const user = "weronika.wrzos-kaminska";
-    const domain = "epfl.ch";
-    const a = document.getElementById("email-link");
-    a.href = "mailto:" + user + "@" + domain;
-  })();
-</script>
-  </aside>
-   
+    <main>
       <section id="publications">
         <h2>Publications</h2>
 
         <ul>
-              <li>
-
+          <li>
             <strong>Recovering Planted Colorings in Sublinear Time</strong><br>
-             <span class="gray">Weronika Wrzos-Kaminska</span><br>
+            <span class="gray">Weronika Wrzos-Kaminska</span><br>
             To appear in RANDOM 2026
           </li>
-          
+
           <li>
             <strong>Recovering Communities in Structured Random Graphs</strong><br>
-            <span class="gray"> Michael Kapralov, Luca Trevisan, Weronika Wrzos-Kaminska</span><br>
+            <span class="gray">Michael Kapralov, Luca Trevisan, Weronika Wrzos-Kaminska</span><br>
             ITCS 2026
-                [<a href="https://www.arxiv.org/abs/2601.16910">arXiv</a>]
+            [<a href="https://www.arxiv.org/abs/2601.16910">arXiv</a>]
           </li>
-          <li>
 
+          <li>
             <strong>Spectral Clustering in Birthday Paradox Time</strong><br>
-             <span class="gray">Michael Kapralov, Ekaterina Kochetkova, Weronika Wrzos-Kaminska</span><br>
+            <span class="gray">Michael Kapralov, Ekaterina Kochetkova, Weronika Wrzos-Kaminska</span><br>
             SODA 2026
-                [<a href="https://arxiv.org/abs/2601.05883">arXiv</a>]
+            [<a href="https://arxiv.org/abs/2601.05883">arXiv</a>]
           </li>
-         <li>
 
-
-            <strong>Spectral Clustering with Side Information</strong><br>
-            <span class="gray">Hendrik Fichtenberger, Michael Kapralov, Ekaterina Kochetkova, Silvio Lattanzi, Davide Mazzali, Weronika Wrzos-Kaminska  </span><br>
-            SODA 2026
-               [<a href="https://arxiv.org/abs/2511.17326">arXiv</a>]
-          </li>
-        <li>
-
-        
-            <strong>Approximating Dasgupta Cost in Sublinear Time from a Few Random Seeds</strong><br>
-          <span class="gray"> Michael Kapralov, Akash Kumar, Silvio Lattanzi, Aida Mousavifar, Weronika Wrzos-Kaminska</span><br>
-            ICALP 2025
-              [<a href="https://arxiv.org/abs/2207.02581">arXiv</a>]
-          </li>
           <li>
+            <strong>Spectral Clustering with Side Information</strong><br>
+            <span class="gray">Hendrik Fichtenberger, Michael Kapralov, Ekaterina Kochetkova, Silvio Lattanzi, Davide Mazzali, Weronika Wrzos-Kaminska</span><br>
+            SODA 2026
+            [<a href="https://arxiv.org/abs/2511.17326">arXiv</a>]
+          </li>
 
-   
-           <strong>On the Robustness of Spectral Algorithms for Semirandom Stochastic Block Models</strong><br>
-                    <span class="gray">Aditya Bhaskara, Agastya Vibhuti Jha, Michael Kapralov, Naren Sarayu Manoj, Davide Mazzali, Weronika Wrzos-Kaminska</span><br>
+          <li>
+            <strong>Approximating Dasgupta Cost in Sublinear Time from a Few Random Seeds</strong><br>
+            <span class="gray">Michael Kapralov, Akash Kumar, Silvio Lattanzi, Aida Mousavifar, Weronika Wrzos-Kaminska</span><br>
+            ICALP 2025
+            [<a href="https://arxiv.org/abs/2207.02581">arXiv</a>]
+          </li>
+
+          <li>
+            <strong>On the Robustness of Spectral Algorithms for Semirandom Stochastic Block Models</strong><br>
+            <span class="gray">Aditya Bhaskara, Agastya Vibhuti Jha, Michael Kapralov, Naren Sarayu Manoj, Davide Mazzali, Weronika Wrzos-Kaminska</span><br>
             NeurIPS 2024
-              [<a href="https://arxiv.org/abs/2412.14315">arXiv</a>]
-          </li>
-           <li>
-
-              <strong>Weighted Matching in the Random-Order Streaming and Robust Communication Models</strong><br>
-        <span class="gray">Diba Hashemi, Weronika Wrzos-Kaminska </span> <span class="emph">(student authors only)</span>  <br>
-            APPROX 2024 <span class="emph"> (Invited to ToC special issue) </span> 
-              [<a href="https://arxiv.org/abs/2408.15434">arXiv</a>]
+            [<a href="https://arxiv.org/abs/2412.14315">arXiv</a>]
           </li>
 
-  
-
-        
-    
+          <li>
+            <strong>Weighted Matching in the Random-Order Streaming and Robust Communication Models</strong><br>
+            <span class="gray">Diba Hashemi, Weronika Wrzos-Kaminska</span>
+            <span class="student-paper-note">(student paper)</span><br>
+            APPROX 2024
+            <span class="toc-note">(Invited to ToC special issue)</span>
+            [<a href="https://arxiv.org/abs/2408.15434">arXiv</a>]
+          </li>
+        </ul>
       </section>
 
-<section id="teaching">
-  <h2>Teaching</h2>
-  <ul>
-    <li>Algorithms I, EPFL</li>
-    <li>Algorithms II, EPFL</li>
-    <li>Theory of Computation, EPFL</li>
-  </ul>
-</section>
-     <main>
+      <section id="teaching">
+        <h2>Teaching</h2>
 
+        <ul class="teaching-list">
+          <li class="teaching-item">
+            <div class="teaching-course">Algorithms I</div>
+            <div class="teaching-meta">Teaching Assistant · Fall 2022, Spring 2024 · EPFL</div>
+          </li>
 
+          <li class="teaching-item">
+            <div class="teaching-course">Algorithms II</div>
+            <div class="teaching-meta">Teaching Assistant · Spring 2023, Fall 2023, 2024, 2025 · EPFL</div>
+          </li>
+
+          <li class="teaching-item">
+            <div class="teaching-course">Theory of Computation</div>
+            <div class="teaching-meta">Teaching Assistant · Spring 2022 · EPFL</div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="service">
+        <h2>Service</h2>
+        <p>Conference review: STOC, FOCS, ITCS, ICALP, ESA, RANDOM</p>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    (function () {
+      const user = "weronika.wrzos-kaminska";
+      const domain = "epfl.ch";
+      const emailLink = document.getElementById("email-link");
+      emailLink.href = "mailto:" + user + "@" + domain;
+    })();
+  </script>
 </body>
 </html>
